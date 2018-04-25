@@ -1,1 +1,0 @@
-# stress-of-life
