@@ -1,10 +1,11 @@
-function Player(game, key){
+function Player(game, key) {
 
 	Phaser.Sprite.call(this, game, 200, 200, key);
 	
 	game.physics.enable(this);
 	this.body.collideWorldBounds = true;
 	
+	//Andrew: Don't think that has to be in Play.js, this is the constructor, could likely just add it here
 	//put this animation code in main/game
 	//player.animations.add('move', [0, 1, 2, 1], 5, true);
 	//player.animations.play('move');
@@ -12,7 +13,7 @@ function Player(game, key){
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
 
-Player.prototype.update = function(){				
+Player.prototype.update = function() {
 	if (cursors.left.isDown)
 	{
 		player.body.velocity.x = -150;
