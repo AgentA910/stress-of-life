@@ -40,6 +40,11 @@ Player.prototype.update = function(){
 	}
 	
 	game.physics.arcade.overlap(player, bullets, getHit, null, this);
+	
+	//if play gets hit four times, the gamestate goes to game over
+	if(hit == 5){
+		game.state.start('GameOver');
+	}
 }
 
 function getHit (player, bullet){
