@@ -16,27 +16,38 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
 	if (cursors.left.isDown)
 	{
-		player.body.velocity.x = -150;
+		player.body.velocity.x = -400/(hit/.5);
 	}
 	else if (cursors.right.isDown)
 	{
-		player.body.velocity.x = 150;
+		player.body.velocity.x = 400/(hit/.5);
 	}
 	else
 	{
-		player.body.velocity.x = 0;
+		player.body.velocity.x = 400/(hit/.5);
 	}
 	if (cursors.up.isDown)
 	{
-		player.body.velocity.y = -150;
+		player.body.velocity.y = 400/(hit/.5);
 	}
 	else if (cursors.down.isDown)
 	{
-		player.body.velocity.y = 150;
+		player.body.velocity.y = 400/(hit/.5);
 	}
 	else
 	{
 		player.body.velocity.y = 0;
 	}
 	
+	game.physics.arcade.overlap(player, bullets, getHit, null, this);
+	
+	//if play gets hit four times, the gamestate goes to game over
+	if(hit == 5){
+		game.state.start('GameOver');
+	}
+}
+
+function getHit (player, bullet){
+	bullet.kill();
+	hit += 1;
 }
