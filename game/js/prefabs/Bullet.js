@@ -1,7 +1,7 @@
 function Bullet(game, key) {
 
 	//Need to replace coordinates with first part of path, will use the waveforms project for help
-	Phaser.Sprite.call(this, game, 200, 200, key);
+	Phaser.Sprite.call(this, game, 50, 50, key);
 	
 	game.physics.enable(this);
 }
