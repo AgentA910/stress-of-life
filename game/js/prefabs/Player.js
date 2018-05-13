@@ -5,10 +5,9 @@ function Player(game, key) {
 	game.physics.enable(this);
 	this.body.collideWorldBounds = true;
 	
-	//Andrew: Don't think that has to be in Play.js, this is the constructor, could likely just add it here
-	//put this animation code in main/game
-	//player.animations.add('move', [0, 1, 2, 1], 5, true);
-	//player.animations.play('move');
+	//plays animation
+	this.animations.add('move', [0, 1, 2, 1], 5, true);
+	this.animations.play('move');
 }
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
