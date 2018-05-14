@@ -14,7 +14,7 @@ Play.prototype = {
 
 		lives = 4;
 		livesText = this.add.text(16, 16, "Lives: 4");
-		player = new Player(game, 'player', 400, 400);
+		player = new Player(game, 'player');
 		this.add.existing(player);
 
 		bulletCount = 0;

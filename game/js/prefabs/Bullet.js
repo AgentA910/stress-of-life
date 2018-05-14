@@ -3,7 +3,6 @@ function Bullet(game, key, path) {
 	this.currentPath = null;
 	this.pi = 0;
 
-	//Need to replace coordinates with first part of path, will use the waveforms project for help
 	Phaser.Sprite.call(this, game, -10, -10, key);
 	
 	game.physics.enable(this);
@@ -28,6 +27,6 @@ Bullet.prototype.update = function() {
 		player.hit++;
 		lives--;
 		livesText.text = 'Lives: ' + (5-player.hit);
-		console.log("Live lost. Current lives: " + (5-player.hit));
+		console.log("Life lost. Current lives: " + (5-player.hit));
 	}
 }
