@@ -8,7 +8,8 @@ Play.prototype = {
 	},
 	create: function() {
 		console.log("Play: create");
-		player = Player(game, 'player');
+		player = new Player(game, 'player', 400, 400);
+		this.add.existing(player);
 	},
 	update: function() {
 		

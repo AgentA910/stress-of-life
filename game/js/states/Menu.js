@@ -5,6 +5,7 @@ Menu.prototype = {
 	},
 	create: function() {
 		console.log("Menu: create");
+		this.stage.backgroundColor = '#aabbcc';
 		this.add.text(32, 32, "Press F to start the game");
 	},
 	update: function() {
