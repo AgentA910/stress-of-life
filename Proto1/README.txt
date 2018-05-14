@@ -1,8 +1,14 @@
-Stress of Life
-A game by:
-Andrew Purcell
-Nick Olds
-Chengyu Jiang
+First Prototype Build
 
-All code under game folder is by above authors, unless otherwise stated
-Framework is Phaser 2.10.3 from Photon Storm Ltd.
+Tested:
+Level, State transition
+Movement/ Collision
+Player, Bullet Prefabs
+Timer
+
+Work Needed:
+Replacing placeholder assets
+  (Music, Sound Effect, Art Assets)
+BUllet behavior/ movements
+Reset properties(health, hit) between levels
+
