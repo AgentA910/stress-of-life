@@ -12,5 +12,8 @@ Play.prototype = {
 	},
 	update: function() {
 		
+	},
+	makeBullet: function() {
+		bullet = Bullet(game, 'bullet');
 	}
 }
