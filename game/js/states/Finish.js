@@ -9,7 +9,7 @@ Finish.prototype = {
 	},
 	update: function() {
 		if (justPressed(Phaser.Keyboard.F)) {
-			game.state.start('Load');
+			game.state.start('Play');
 		}
 	}
 }

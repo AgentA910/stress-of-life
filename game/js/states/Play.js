@@ -25,15 +25,17 @@ Play.prototype = {
 		game.bg = game.add.audio('bg');
 		game.bg.play('', 0, 1, true);
 
-		finishTimer = game.time.create(false);
-		finishTimer.loop(20000, this.finishGame, this);
-		finishTimer.start();
+		//finishTimer = game.time.create(false);
+		//finishTimer.loop(20000, this.finishGame, this);
+		//finishTimer.start();
 	},
 	update: function() {
-		
+		if (justPressed(Phaser.Keyboard.F)) {
+			this.finishGame();
+		}
 	},
 	makeBullet: function() {
-		bullet = new Bullet(game, 'bullet', game.path);
+		bullet = new Bullet(game, 'bullet', game.paths[bulletCount]);
 		this.add.existing(bullet);
 		bulletCount++;
 		if (bulletCount >= 5) {
@@ -42,7 +44,7 @@ Play.prototype = {
 	},
 	finishGame: function() {
 		game.bg.stop();
-		finishTimer.stop();
+		//finishTimer.stop();
 		game.state.start('Finish');
 	}
 }
