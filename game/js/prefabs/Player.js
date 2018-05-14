@@ -1,14 +1,13 @@
-function Player(game, key, x, y) {
+function Player(game, key) {
 
-	Phaser.Sprite.call(this, game, x, y, key);
+	Phaser.Sprite.call(this, game, game.width/2, game.height/2, key);
 	
 	game.physics.enable(this);
 	this.body.collideWorldBounds = true;
 	this.anchor.set(0.5);
 	//plays animation
-	//Not working for some reason, Leaving at just one frame in .png file for now
-	//this.animations.add('move', [0, 1, 2, 1], 5, true);
-	//this.animations.play('move');
+	this.animations.add('move', [0, 1, 2, 1], 5, true);
+	this.animations.play('move');
 
 	this.hit = 1;
 }

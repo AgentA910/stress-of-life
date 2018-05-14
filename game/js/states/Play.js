@@ -14,7 +14,7 @@ Play.prototype = {
 
 		lives = 4;
 		livesText = this.add.text(16, 16, "Lives: 4");
-		player = new Player(game, 'player', 400, 400);
+		player = new Player(game, 'player');
 		this.add.existing(player);
 
 		bulletCount = 0;
@@ -26,14 +26,14 @@ Play.prototype = {
 		game.bg.play('', 0, 1, true);
 
 		finishTimer = game.time.create(false);
-		finishTimer.loop(10000, this.finishGame, this);
+		finishTimer.loop(20000, this.finishGame, this);
 		finishTimer.start();
 	},
 	update: function() {
 		
 	},
 	makeBullet: function() {
-		bullet = new Bullet(game, 'bullet');
+		bullet = new Bullet(game, 'bullet', game.path);
 		this.add.existing(bullet);
 		bulletCount++;
 		if (bulletCount >= 5) {
