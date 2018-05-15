@@ -19,7 +19,7 @@ Bullet.prototype.update = function() {
 
 	this.pi++;
 
-	if (this.pi >= this.path.length) {
+	if (this.pi >= this.path.length-1) {
 		this.destroy();
 	}
 	if (game.physics.arcade.overlap(this, player)) {
