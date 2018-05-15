@@ -19,7 +19,7 @@ Play.prototype = {
 
 		pattern = 0;
 		timer1 = game.time.create(false);
-		timer1.repeat(10, 8, this.bulletPatterns, this);
+		timer1.repeat(10, 1, this.bulletPatterns, this);
 		timer1.start();
 
 		game.bg = game.add.audio('bg');
