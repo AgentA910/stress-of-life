@@ -34,7 +34,8 @@ Play.prototype = {
 			this.finishGame();
 		}
 	},
-	makeBullet: function(route) {
+	makeBullet: function() {
+		route = game.rnd.integerInRange(0,7);
 		bullet = new Bullet(game, 'bullet', game.paths[route]);
 		this.add.existing(bullet);
 	},
@@ -45,8 +46,7 @@ Play.prototype = {
 	},
 	bulletPatterns: function() {
 		timer2 = game.time.create(false);
-		timer2.repeat(1000, 5, this.makeBullet, this, pattern)
+		timer2.repeat(1000, 5, this.makeBullet, this)
 		timer2.start();
-		pattern++;
 	}
 }
