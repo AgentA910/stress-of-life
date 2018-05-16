@@ -26,7 +26,7 @@ Bullet.prototype.update = function() {
 		this.destroy();
 		player.hit++;
 		lives--;
-		livesText.text = 'Lives: ' + (5-player.hit);
 		console.log("Life lost. Current lives: " + (5-player.hit));
+		bar.frame++;
 	}
 }

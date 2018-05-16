@@ -8,6 +8,7 @@ Load.prototype = {
 		game.load.path = 'assets/img/stylesheet/';
 		game.load.image('bullet', 'bullet.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
+		game.load.spritesheet('bar', 'Bar.png', 32, 32)
 		game.load.path = 'assets/audio/';
 		game.load.audio('bg', 'Blue Sea Of 53 Minutes.mp3');
 	},

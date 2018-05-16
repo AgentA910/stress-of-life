@@ -3,6 +3,7 @@ var bullet;
 var bulletCount;
 var lives;
 var livesText;
+var bar;
 
 var Play = function(game) {};
 Play.prototype = {
@@ -12,10 +13,15 @@ Play.prototype = {
 	create: function() {
 		console.log("Play: create");
 
-		lives = 4;
-		livesText = this.add.text(16, 16, "Lives: 4");
+		/*lives = 4;
+		livesText = this.add.text(16, 16, "Lives: 4");*/
+		bar = new Bar(game, 0, 0, 'bar');
+		this.add.existing(bar);
+
+
 		player = new Player(game, 'player');
 		this.add.existing(player);
+
 
 		bulletCount = 0;
 		bulletAddTimer = game.time.create(false);
