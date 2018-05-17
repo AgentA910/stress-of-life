@@ -9,9 +9,11 @@ var Play = function(game) {};
 Play.prototype = {
 	preload: function() {
 		console.log("Play: preload");
+		game.time.advancedTiming = true;
 	},
 	create: function() {
 		console.log("Play: create");
+		debug = false
 
 		/*lives = 4;
 		livesText = this.add.text(16, 16, "Lives: 4");*/
@@ -39,7 +41,8 @@ Play.prototype = {
 			this.finishGame();
 		}
 	},
-	makeBullet: function(route) {
+	makeBullet: function() {
+		route = game.rnd.integerInRange(0,7);
 		bullet = new Bullet(game, 'bullet', game.paths[route]);
 		this.add.existing(bullet);
 	},
@@ -50,8 +53,7 @@ Play.prototype = {
 	},
 	bulletPatterns: function() {
 		timer2 = game.time.create(false);
-		timer2.repeat(1000, 5, this.makeBullet, this, pattern)
+		timer2.repeat(1000, 5, this.makeBullet, this)
 		timer2.start();
-		pattern++;
 	}
 }

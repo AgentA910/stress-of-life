@@ -18,9 +18,13 @@ Load.prototype = {
 
 		var pathsJSON = game.cache.getJSON('jsonpath');
 		this.points = [];
-		for (var i = 1; i < pathsJSON.length; i++) {
+		this.time = [];
+		this.inter = [];
+		for (var i = 0; i < pathsJSON.length; i++) {
 			//Adds all of the points from the JSON file to this.points
 			this.points.push({x: pathsJSON[i].x, y: pathsJSON[i].y});
+			this.time.push(pathsJSON[i].time);
+			this.inter.push(pathsJSON[i].inter);
 		}
         game.paths = [];
 
@@ -30,15 +34,27 @@ Load.prototype = {
 	},
 	//Code adapted from Phaser motion paths tutorial and the Phaser waveforms project
 	plot: function() {
-		var x = 1 / 800;
 		for (var j = 0; j < this.points.length; j++) {
+			var x = 1 / (this.time[j]*60);
 			this.path = [];
-			for (var i = 0; i <= 1; i += x) {
-		        var px = this.math.catmullRomInterpolation(this.points[j].x, i);
-		        var py = this.math.catmullRomInterpolation(this.points[j].y, i);
+			//Type of interpolation is declared with each path in the path.json file
+			if (this.inter[j] == 1) {
+				//Do catmull interpolation, so more curves, smoother
+				for (var i = 0; i <= 1; i += x) {
+			        var px = this.math.catmullRomInterpolation(this.points[j].x, i);
+			        var py = this.math.catmullRomInterpolation(this.points[j].y, i);
 
-		        this.path.push({x: px, y: py});
-		    }
+			        this.path.push({x: px, y: py});
+			    }
+			} else {
+				//Do linear interpolation, straight from one point to the next
+				for (var i = 0; i <= 1; i += x) {
+					var px = this.math.linearInterpolation(this.points[j].x, i);
+					var py = this.math.linearInterpolation(this.points[j].y, i);
+
+					this.path.push({x: px, y: py});
+				}
+			}
 		    game.paths.push(this.path);
 		}
 	}
