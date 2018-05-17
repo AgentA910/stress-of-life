@@ -8,9 +8,11 @@ var Play = function(game) {};
 Play.prototype = {
 	preload: function() {
 		console.log("Play: preload");
+		game.time.advancedTiming = true;
 	},
 	create: function() {
 		console.log("Play: create");
+		debug = false
 
 		lives = 4;
 		livesText = this.add.text(16, 16, "Lives: 4");
