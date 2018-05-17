@@ -1,5 +1,6 @@
 [
   {
+    "_comment": "Path 0",
     "time": 10,
     "inter": 1,
     "x": [
@@ -28,6 +29,7 @@
     ]
   },
   {
+    "_comment": "Path 1",
     "time": 1,
     "inter": 0,
     "x": [
@@ -35,11 +37,12 @@
       400
     ],
     "y": [
-      69,
+      0,
       400
     ]
   },
   {
+    "_comment": "Path 2",
     "time": 4,
     "inter": 0,
     "x": [
@@ -60,6 +63,7 @@
     ]
   },
   {
+    "_comment": "Path 3",
     "time": 5,
     "inter": 0,
     "x": [
@@ -80,6 +84,7 @@
     ]
   },
   {
+    "_comment": "Path 4",
     "time": 6,
     "inter": 0,
     "x": [
@@ -100,6 +105,7 @@
     ]
   },
   {
+    "_comment": "Path 5",
     "time": 7,
     "inter": 0,
     "x": [
@@ -120,6 +126,7 @@
     ]
   },
   {
+    "_comment": "Path 6",
     "time": 8,
     "inter": 0,
     "x": [
@@ -140,6 +147,7 @@
     ]
   },
   {
+    "_comment": "Path 7",
     "time": 9,
     "inter": 0,
     "x": [
