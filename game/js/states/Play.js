@@ -27,7 +27,8 @@ Play.prototype = {
 		this.add.existing(player);
 
 		timer1 = game.time.create(false);
-		timer1.repeat(2000, 10, this.spawnTwenty, this);
+		this.spawnTwenty();
+		timer1.repeat(4000, 9, this.spawnTwenty, this);
 		timer1.start();
 
 		finishTimer = game.time.create(false);

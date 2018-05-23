@@ -14,6 +14,9 @@ Load.prototype = {
 	},
 	create: function() {
 		console.log("Load: create");
+
+		game.physics.startSystem(Phaser.Physics.ARCADE);
+
 		cursors = game.input.keyboard.createCursorKeys();
 
 		var pathsJSON = game.cache.getJSON('jsonpath');
