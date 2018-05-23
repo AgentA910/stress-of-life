@@ -9,8 +9,6 @@ var Play = function(game) {};
 Play.prototype = {
 	preload: function() {
 		console.log("Play: preload");
-		game.time.advancedTiming = true;
-	},
 	create: function() {
 		console.log("Play: create");
 		debug = false
@@ -24,25 +22,33 @@ Play.prototype = {
 		player = new Player(game, 'player');
 		this.add.existing(player);
 
-		pattern = 0;
-		timer1 = game.time.create(false);
-		timer1.repeat(10, 1, this.bulletPatterns, this);
-		timer1.start();
+		var start = new Phaser.Signal();
+		start.add(this.leftSpawn, this);
+		start.add(this.rightSpawn, this);
+		start.add(this.topSpawn, this);
+		start.add(this.bottomSpawn, this);
+
+		//pattern = 0;
+		//timer1 = game.time.create(false);
+		//timer1.repeat(10, 1, this.bulletPatterns, this);
+		//timer1.start();
 
 		game.bg = game.add.audio('bg');
 		game.bg.play('', 0, 1, true);
 
 		finishTimer = game.time.create(false);
-		finishTimer.loop(20000, this.finishGame, this);
+		//Two minutes
+		finishTimer.loop(120000, this.finishGame, this);
 		finishTimer.start();
 	},
 	update: function() {
 		if (justPressed(Phaser.Keyboard.F)) {
+			//To quickly leave the level
 			this.finishGame();
 		}
 	},
 	makeBullet: function() {
-		route = game.rnd.integerInRange(0,7);
+		route = game.rnd.integerInRange(0,game.paths.length);
 		bullet = new Bullet(game, 'bullet', game.paths[route]);
 		this.add.existing(bullet);
 	},
@@ -50,6 +56,18 @@ Play.prototype = {
 		game.bg.stop();
 		//finishTimer.stop();
 		game.state.start('Finish');
+	},
+	leftSpawn: function() {
+		this.bulletPatterns();
+	},
+	rightSpawn: function() {
+		this.bulletPatterns();
+	},
+	topSpawn: function() {
+		this.bulletPatterns();
+	},
+	bottomSpawn: function() {
+		this.bulletPatterns();
 	},
 	bulletPatterns: function() {
 		timer2 = game.time.create(false);
