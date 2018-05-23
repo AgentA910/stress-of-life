@@ -14,6 +14,9 @@ Play.prototype = {
 		console.log("Play: create");
 		debug = false
 
+		game.bg = game.add.audio('bg');
+		game.bg.play('', 0, 1, true);
+
 		/*lives = 4;
 		livesText = this.add.text(16, 16, "Lives: 4");*/
 		bar = new Bar(game, 0, 0, 'bar');
@@ -24,15 +27,12 @@ Play.prototype = {
 		this.add.existing(player);
 
 		timer1 = game.time.create(false);
-		timer1.repeat(10, 100, this.makeBullet, this);
+		timer1.repeat(2000, 10, this.spawnTwenty, this);
 		timer1.start();
-
-		game.bg = game.add.audio('bg');
-		game.bg.play('', 0, 1, true);
 
 		finishTimer = game.time.create(false);
 		//Two minutes
-		finishTimer.loop(120000, this.finishGame, this);
+		finishTimer.add(60000, this.finishGame, this);
 		finishTimer.start();
 	},
 	update: function() {
@@ -40,6 +40,11 @@ Play.prototype = {
 			//To quickly leave the level
 			this.finishGame();
 		}
+	},
+	spawnTwenty: function() {
+		timer2 = game.time.create(false);
+		timer2.repeat(10, 20, this.makeBullet, this);
+		timer2.start();
 	},
 	makeBullet: function() {
 		route = game.rnd.integerInRange(0,game.paths.length-1);
