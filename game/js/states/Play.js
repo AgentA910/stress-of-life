@@ -9,6 +9,7 @@ var Play = function(game) {};
 Play.prototype = {
 	preload: function() {
 		console.log("Play: preload");
+	},
 	create: function() {
 		console.log("Play: create");
 		debug = false
@@ -22,16 +23,9 @@ Play.prototype = {
 		player = new Player(game, 'player');
 		this.add.existing(player);
 
-		var start = new Phaser.Signal();
-		start.add(this.leftSpawn, this);
-		start.add(this.rightSpawn, this);
-		start.add(this.topSpawn, this);
-		start.add(this.bottomSpawn, this);
-
-		//pattern = 0;
-		//timer1 = game.time.create(false);
-		//timer1.repeat(10, 1, this.bulletPatterns, this);
-		//timer1.start();
+		timer1 = game.time.create(false);
+		timer1.repeat(10, 100, this.makeBullet, this);
+		timer1.start();
 
 		game.bg = game.add.audio('bg');
 		game.bg.play('', 0, 1, true);
@@ -48,7 +42,7 @@ Play.prototype = {
 		}
 	},
 	makeBullet: function() {
-		route = game.rnd.integerInRange(0,game.paths.length);
+		route = game.rnd.integerInRange(0,game.paths.length-1);
 		bullet = new Bullet(game, 'bullet', game.paths[route]);
 		this.add.existing(bullet);
 	},
@@ -56,22 +50,5 @@ Play.prototype = {
 		game.bg.stop();
 		//finishTimer.stop();
 		game.state.start('Finish');
-	},
-	leftSpawn: function() {
-		this.bulletPatterns();
-	},
-	rightSpawn: function() {
-		this.bulletPatterns();
-	},
-	topSpawn: function() {
-		this.bulletPatterns();
-	},
-	bottomSpawn: function() {
-		this.bulletPatterns();
-	},
-	bulletPatterns: function() {
-		timer2 = game.time.create(false);
-		timer2.repeat(1000, 5, this.makeBullet, this)
-		timer2.start();
 	}
 }
