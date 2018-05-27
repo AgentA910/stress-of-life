@@ -33,7 +33,7 @@ Load.prototype = {
 
         this.plot();
 
-		game.state.start('Play');
+		game.state.start('Play1');
 	},
 	//Code adapted from Phaser motion paths tutorial and the Phaser waveforms project
 	plot: function() {

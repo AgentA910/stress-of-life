@@ -1,12 +1,10 @@
 var player;
 var bullet;
 var bulletCount;
-var lives;
-var livesText;
 var bar;
 
-var Play = function(game) {};
-Play.prototype = {
+var Play1 = function(game) {};
+Play1.prototype = {
 	preload: function() {
 		console.log("Play: preload");
 	},
@@ -17,22 +15,19 @@ Play.prototype = {
 		game.bg = game.add.audio('bg');
 		game.bg.play('', 0, 1, true);
 
-		/*lives = 4;
-		livesText = this.add.text(16, 16, "Lives: 4");*/
 		bar = new Bar(game, 0, 0, 'bar');
 		this.add.existing(bar);
-
 
 		player = new Player(game, 'player');
 		this.add.existing(player);
 
 		timer1 = game.time.create(false);
-		this.spawnTwenty();
-		timer1.repeat(4000, 9, this.spawnTwenty, this);
+		this.makeThirty();
+		timer1.repeat(2000, 29, this.makeThirty, this);
 		timer1.start();
 
 		finishTimer = game.time.create(false);
-		//Two minutes
+		//One minute
 		finishTimer.add(60000, this.finishGame, this);
 		finishTimer.start();
 	},
@@ -42,10 +37,10 @@ Play.prototype = {
 			this.finishGame();
 		}
 	},
-	spawnTwenty: function() {
-		timer2 = game.time.create(false);
-		timer2.repeat(10, 20, this.makeBullet, this);
-		timer2.start();
+	makeThirty: function() {
+		for (var i = 0; i < 30; i++) {
+			this.makeBullet();
+		}
 	},
 	makeBullet: function() {
 		route = game.rnd.integerInRange(0,game.paths.length-1);
