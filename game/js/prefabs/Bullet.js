@@ -25,7 +25,6 @@ Bullet.prototype.update = function() {
 	if (game.physics.arcade.overlap(this, player)) {
 		this.destroy();
 		player.hit++;
-		lives--;
 		console.log("Life lost. Current lives: " + (5-player.hit));
 		bar.frame++;
 	}

@@ -5,7 +5,3 @@ function Bar(game, x, y, key){
 
 Bar.prototype = Object.create(Phaser.Sprite.prototype);
 Bar.prototype.constructor = Bar;
-
-//add code to player/bullet collision
-// bar.frame += 1;
-

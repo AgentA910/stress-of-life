@@ -5,6 +5,7 @@ function Player(game, key) {
 	game.physics.enable(this);
 	this.body.collideWorldBounds = true;
 	this.anchor.set(0.5);
+	this.body.setSize(8, 8, 12, 12);
 	//plays animation
 	this.animations.add('move', [0, 1, 2, 1], 5, true);
 	this.animations.play('move');
