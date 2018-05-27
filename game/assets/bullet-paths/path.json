@@ -103,8 +103,8 @@
   },
   {
     "_comment": "Path 6",
-    "time": 8,
-    "inter": 0,
+    "time": 7,
+    "inter": 1,
     "x": [
       0,
       128,
@@ -124,8 +124,8 @@
   },
   {
     "_comment": "Path 7",
-    "time": 9,
-    "inter": 0,
+    "time": 7,
+    "inter": 1,
     "x": [
       0,
       128,

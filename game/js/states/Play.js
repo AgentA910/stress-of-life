@@ -13,7 +13,7 @@ Play1.prototype = {
 		debug = false
 
 		game.bg = game.add.audio('bg');
-		game.bg.play('', 0, 1, true);
+		game.bg.play('', 0, 0.5, true);
 
 		bar = new Bar(game, 0, 0, 'bar');
 		this.add.existing(bar);
