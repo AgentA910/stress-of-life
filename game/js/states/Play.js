@@ -44,7 +44,11 @@ Play1.prototype = {
 	},
 	makeBullet: function() {
 		route = game.rnd.integerInRange(0,game.paths.length-1);
-		bullet = new Bullet(game, 'bullet', game.paths[route]);
+		if (Math.random() >= 0.5) {
+			bullet = new Bullet(game, 'gradeF', game.paths[route]);
+		} else {
+			bullet = new Bullet(game, 'paper', game.paths[route]);
+		}
 		this.add.existing(bullet);
 	},
 	finishGame: function() {

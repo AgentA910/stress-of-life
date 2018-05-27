@@ -6,7 +6,8 @@ Load.prototype = {
 		//For future use of the json file
 		game.load.json('jsonpath', 'assets/bullet-paths/path.json');
 		game.load.path = 'assets/img/stylesheet/';
-		game.load.image('bullet', 'bullet.png');
+		game.load.image('gradeF', 'gradeF.png');
+		game.load.image('paper', 'paper.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
 		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
