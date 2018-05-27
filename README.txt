@@ -9,4 +9,4 @@ Current version: 0.1.1
 All code under game folder is by above authors, unless otherwise stated
 Framework is Phaser 2.10.3 from Photon Storm Ltd.
 
-Background music is placeholder, we do not own it.
+Background music found at freesound.org. More exact credits to be included soon.
