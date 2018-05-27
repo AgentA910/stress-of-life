@@ -2,9 +2,9 @@
 
 var game;
 window.onload = function() {
-	game = new Phaser.Game(800, 800, Phaser.AUTO);
+	game = new Phaser.Game(600, 600, Phaser.AUTO);
 	game.state.add('Load', Load);
-	game.state.add('Play', Play);
+	game.state.add('Play1', Play1);
 	game.state.add('Menu', Menu);
 	game.state.add('Finish', Finish);
 	game.state.start('Menu');
