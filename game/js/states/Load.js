@@ -8,9 +8,9 @@ Load.prototype = {
 		game.load.path = 'assets/img/stylesheet/';
 		game.load.image('bullet', 'bullet.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
-		game.load.spritesheet('bar', 'Bar.png', 32, 32)
+		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
-		game.load.audio('bg', 'Blue Sea Of 53 Minutes.mp3');
+		game.load.audio('bg', '253761__caculo__very-noisy-kids-in-classroom.mp3');
 	},
 	create: function() {
 		console.log("Load: create");
