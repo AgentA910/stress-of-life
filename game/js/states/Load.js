@@ -12,6 +12,9 @@ Load.prototype = {
 		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
 		game.load.audio('bg', '253761__caculo__very-noisy-kids-in-classroom.mp3');
+		game.load.path = 'assets/img/background/';
+		game.load.image('background1', 'background1.png');
+		game.load.image('background3', 'background3.png');
 	},
 	create: function() {
 		console.log("Load: create");
