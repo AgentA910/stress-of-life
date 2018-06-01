@@ -24,17 +24,6 @@ Menu.prototype = {
 		this.menuUp = false;
 	},
 	update: function() {
-		if (justPressed(Phaser.Keyboard.F)) {
-			startText.kill();
-			gameText = game.add.text(game.world.centerX, 400, "New Game", {fill:inactiveFill});
-			creditText = game.add.text(game.world.centerX, 450, "Credits",{fill:inactiveFill});
-			gameText.anchor.set(0.5);
-			creditText.anchor.set(0.5);
-			this.menuUp = true;
-			this.selection = 1;
-			this.setSelection();
-		}
-
 		if (this.menuUp) {
 			if(justPressed(Phaser.Keyboard.DOWN)) {
 				this.selectDown();
@@ -44,6 +33,17 @@ Menu.prototype = {
 
 			if (justPressed(Phaser.Keyboard.ENTER)) {
 					this.menuPress();
+			}
+		} else {
+			if (justPressed(Phaser.Keyboard.F)) {
+				startText.kill();
+				gameText = game.add.text(game.world.centerX, 400, "New Game", {fill:inactiveFill});
+				creditText = game.add.text(game.world.centerX, 450, "Credits",{fill:inactiveFill});
+				gameText.anchor.set(0.5);
+				creditText.anchor.set(0.5);
+				this.menuUp = true;
+				this.selection = 1;
+				this.setSelection();
 			}
 		}
 	},
