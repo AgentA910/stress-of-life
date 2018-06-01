@@ -7,5 +7,6 @@ window.onload = function() {
 	game.state.add('Play1', Play1);
 	game.state.add('Menu', Menu);
 	game.state.add('Finish', Finish);
+	game.state.add('Credits', Credits);
 	game.state.start('Menu');
 }

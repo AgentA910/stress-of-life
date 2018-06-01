@@ -10,7 +10,10 @@ Play1.prototype = {
 	},
 	create: function() {
 		console.log("Play: create");
-		debug = false
+
+		game.paused = true;
+
+		this.background = this.game.add.image(0, 0, 'background1');
 
 		game.bg = game.add.audio('bg');
 		game.bg.play('', 0, 0.5, true);
@@ -20,6 +23,13 @@ Play1.prototype = {
 
 		player = new Player(game, 'player');
 		this.add.existing(player);
+
+		level1Text = game.add.text(280, 400, 'Level 1', { fontSize: '50px', fill: '#ffffff' });
+		level1Text.anchor.set(0.5);
+		var style = { font: 'bold 20pt Arial', fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 500 }
+		instructionText = game.add.text(50, 200, 'Arrow Keys to move. Watch your stress meter and dodge the projectiles. Press ENTER to start', style);
+		ENTER = game.input.keyboard.addKey(Phaser.Keyboard.ENTER)
+		ENTER.onDown.add(this.unpause, self);
 
 		timer1 = game.time.create(false);
 		this.makeThirty();
@@ -55,5 +65,10 @@ Play1.prototype = {
 		game.bg.stop();
 		//finishTimer.stop();
 		game.state.start('Finish');
+	},
+	unpause: function() {
+		level1Text.destroy();
+		instructionText.destroy();
+		game.paused = false;
 	}
 }
