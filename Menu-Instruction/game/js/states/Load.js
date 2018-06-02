@@ -9,7 +9,7 @@ Load.prototype = {
 		game.load.image('gradeF', 'gradeF.png');
 		game.load.image('paper', 'paper.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
-		game.load.spritesheet('bar', 'Bar.png', 32, 300);
+		game.load.spritesheet('bar', 'Bar.png', 30, 450);
 		game.load.image('arrow', 'arrow.png');
 		game.load.path = 'assets/audio/';
 		game.load.audio('bg', '253761__caculo__very-noisy-kids-in-classroom.mp3');

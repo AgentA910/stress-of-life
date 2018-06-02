@@ -20,7 +20,7 @@ Play1.prototype = {
 
 		this.background = this.game.add.image(0, 0, 'background1');
 
-		bar = new Bar(game, 0, 0, 'bar');
+		bar = new Bar(game, 5, 50, 'bar');
 		this.add.existing(bar);
 
 		player = new Player(game, 'player');
