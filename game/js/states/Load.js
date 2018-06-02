@@ -14,6 +14,7 @@ Load.prototype = {
 		game.load.audio('bg', '253761__caculo__very-noisy-kids-in-classroom.mp3');
 		game.load.path = 'assets/img/background/';
 		game.load.image('background1', 'background1.png');
+		game.load.image('abckground2', 'background2.png');
 		game.load.image('background3', 'background3.png');
 	},
 	create: function() {
