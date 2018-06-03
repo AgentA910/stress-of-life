@@ -11,7 +11,7 @@ Menu.prototype = {
 		console.log("Menu: create");
 		activeFill = "#333";
     	inactiveFill = "#CCC";
-		this.stage.backgroundColor = '#aabbcc';
+		this.background = this.game.add.image(0, 0, 'backgroundMenu');
 		textStyle = {
 			font: 'Black Ops One',
 			fontSize: 76,

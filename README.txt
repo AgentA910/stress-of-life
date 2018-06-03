@@ -17,3 +17,6 @@ From: Freesound user dnlburnett (https://freesound.org/people/dnlburnett/sounds/
 
 Sound: Remembered
 From: Freesound user moz5a (https://freesound.org/people/moz5a/)
+
+Sound: Slap.wav
+From: Freesound user mccormick_iain (https://freesound.org/people/mccormick_iain/)
