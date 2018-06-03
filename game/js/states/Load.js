@@ -11,7 +11,10 @@ Load.prototype = {
 		game.load.spritesheet('player', 'player.png', 32, 32);
 		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
-		game.load.audio('bg', '253761__caculo__very-noisy-kids-in-classroom.mp3');
+		game.load.audio('bg1', '253761__caculo__very-noisy-kids-in-classroom.mp3');
+		game.load.audio('bg2', '335711__dnlburnett__ambience-busy-office-call-center.wav');
+		game.load.audio('bg3', '255581__moz5a__remembered.mp3');
+		game.load.audio('slap', '371108__mccormick-iain__slap.wav');
 		game.load.path = 'assets/img/background/';
 		game.load.image('background1', 'background1.png');
 		game.load.image('abckground2', 'background2.png');
@@ -19,6 +22,10 @@ Load.prototype = {
 	},
 	create: function() {
 		console.log("Load: create");
+		//Setup loading bar, from class source for Paddle Parkour
+		var loadingBar = this.add.sprite(game.width/2, game.height/2, 'loading');
+		loadingBar.anchor.set(0.5);
+		game.load.setPreloadSprite(loadingBar);
 
 		game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -37,8 +44,15 @@ Load.prototype = {
         game.paths = [];
 
         this.plot();
-
-		game.state.start('Play1');
+	},
+	update: function() {
+		if (game.cache.isSoundDecoded('bg1')
+        	&& game.cache.isSoundDecoded('bg2')
+        	&& game.cache.isSoundDecoded('bg3')
+        	&& game.cache.isSoundDecoded('slap')) {
+			//Wait until all sound is decoded to start the game
+        	game.state.start('Play1');
+        }
 	},
 	//Code adapted from Phaser motion paths tutorial and the Phaser waveforms project
 	plot: function() {

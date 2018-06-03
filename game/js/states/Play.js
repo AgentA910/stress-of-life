@@ -15,7 +15,7 @@ Play1.prototype = {
 
 		this.background = this.game.add.image(0, 0, 'background1');
 
-		game.bg = game.add.audio('bg');
+		game.bg = game.add.audio('bg1');
 		game.bg.play('', 0, 0.5, true);
 
 		bar = new Bar(game, 0, 0, 'bar');
