@@ -6,6 +6,7 @@ window.onload = function() {
 	game.state.add('Load', Load);
 	game.state.add('Play1', Play1);
 	game.state.add('Play2', Play2);
+	game.state.add('Play3', Play3);
 	game.state.add('Menu', Menu);
 	game.state.add('Finish', Finish);
 	game.state.add('Credits', Credits);
