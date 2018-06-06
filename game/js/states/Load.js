@@ -89,11 +89,15 @@ Load.prototype = {
         	&& game.cache.isSoundDecoded('bg3')
         	&& game.cache.isSoundDecoded('slap')) {
 			//Wait until all sound is decoded to start the game
+			console.log(toLoad);
 			if (toLoad == 1) {
+				console.log("Loading Play1");
 				game.state.start('Play1');
 			} else if (toLoad == 2) {
+				console.log("Loading Play2");
 				game.state.start('Play2');
 			} else if (toLoad == 3) {
+				console.log("Loading Play3");
 				game.state.start('Play3');
 			}
         }

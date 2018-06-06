@@ -53,7 +53,7 @@ Play1.prototype = {
 		}
 	},
 	makeBullet: function() {
-		route = game.rnd.integerInRange(0,game.paths3.length-1);
+		route = game.rnd.integerInRange(0,game.paths.length-1);
 		if (Math.random() >= 0.5) {
 			bullet = new Bullet(game, 'gradeF', game.paths[route]);
 		} else {
