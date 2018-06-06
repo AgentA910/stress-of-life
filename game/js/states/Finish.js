@@ -9,7 +9,7 @@ Finish.prototype = {
 	},
 	update: function() {
 		if (justPressed(Phaser.Keyboard.F)) {
-			game.state.start('Play1');
+			game.state.start('Menu');
 		}
 	}
 }
