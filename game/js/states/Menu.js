@@ -37,11 +37,9 @@ Menu.prototype = {
 			}
 			if (justPressed(Phaser.Keyboard.NUMPAD_1)) {
 				toLoad = 1;
-				console.log(toLoad);
 			}
 			if (justPressed(Phaser.Keyboard.NUMPAD_2)) {
 				toLoad = 2;
-				console.log(toLoad);
 			}
 			if (justPressed(Phaser.Keyboard.NUMPAD_3)) {
 				toLoad = 3;
