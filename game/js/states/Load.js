@@ -24,6 +24,7 @@ Load.prototype = {
 	},
 	create: function() {
 		console.log("Load: create");
+		this.background = this.game.add.image(0, 0, 'backgroundMenu');
 		//Setup loading bar, from class source for Paddle Parkour
 		var loadingBar = this.add.sprite(game.width/2, game.height/2, 'loading');
 		loadingBar.anchor.set(0.5);
@@ -46,6 +47,12 @@ Load.prototype = {
 			this.points.push({x: pathsJSON[i].x, y: pathsJSON[i].y});
 			this.time.push(pathsJSON[i].time);
 			this.inter.push(pathsJSON[i].inter);
+		}
+		for (var i = 0; i < pathsJSON2.length; i++) {
+			//Adds all of the points from the second JSON file to this.points2
+			this.points2.push({x: pathsJSON2[i].x, y: pathsJSON2[i].y});
+			this.time2.push(pathsJSON2[i].time);
+			this.inter2.push(pathsJSON2[i].inter);
 		}
         game.paths = [];
 
@@ -84,6 +91,29 @@ Load.prototype = {
 				}
 			}
 		    game.paths.push(this.path);
+		}
+		for (var j = 0; j < this.points2.length; j++) {
+			var x = 1 / (this.time2[j]*60);
+			this.path2 = [];
+			//Type of interpolation is declared with each path in the path.json file
+			if (this.inter2[j] == 1) {
+				//Do catmull interpolation, so more curves, smoother
+				for (var i = 0; i <= 1; i += x) {
+			        var px = this.math.catmullRomInterpolation(this.points2[j].x, i);
+			        var py = this.math.catmullRomInterpolation(this.points2[j].y, i);
+
+			        this.path2.push({x: px, y: py});
+			    }
+			} else {
+				//Do linear interpolation, straight from one point to the next
+				for (var i = 0; i <= 1; i += x) {
+					var px = this.math.linearInterpolation(this.points2[j].x, i);
+					var py = this.math.linearInterpolation(this.points2[j].y, i);
+
+					this.path2.push({x: px, y: py});
+				}
+			}
+		    game.paths2.push(this.path2);
 		}
 	}
 }
