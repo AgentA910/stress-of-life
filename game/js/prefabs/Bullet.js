@@ -27,6 +27,6 @@ Bullet.prototype.update = function() {
 		player.hit++;
 		console.log("Life lost. Current lives: " + (5-player.hit));
 		bar.frame++;
-		this.splat.play('', 0, 1, false);
+		game.slap.play('', 0, 1, false);
 	}
 }
