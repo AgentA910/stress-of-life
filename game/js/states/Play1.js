@@ -53,7 +53,7 @@ Play1.prototype = {
 		}
 	},
 	makeBullet: function() {
-		route = game.rnd.integerInRange(0,game.paths.length-1);
+		route = game.rnd.integerInRange(0,game.paths3.length-1);
 		if (Math.random() >= 0.5) {
 			bullet = new Bullet(game, 'gradeF', game.paths[route]);
 		} else {
@@ -63,6 +63,7 @@ Play1.prototype = {
 	},
 	finishGame: function() {
 		game.bg.stop();
+		timer1.stop();
 		//finishTimer.stop();
 		game.state.start('Finish');
 	},
@@ -73,6 +74,7 @@ Play1.prototype = {
 	},
 	nextLevel: function() {
 		game.bg.stop();
+		timer1.stop();
 		game.state.start('Play2');
 	}
 }
