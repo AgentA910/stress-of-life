@@ -1,16 +1,16 @@
-var Play2 = function(game) {};
-Play2.prototype = {
+var Play3 = function(game) {};
+Play3.prototype = {
 	preload: function() {
-		console.log("Play2: preload");
+		console.log("Play3: preload");
 	},
 	create: function() {
-		console.log("Play2: create");
+		console.log("Play3: create");
 
 		game.paused = true;
 
-		this.background = this.game.add.image(0, 0, 'background2');
+		this.background = this.game.add.image(0, 0, 'background3');
 
-		game.bg = game.add.audio('bg2');
+		game.bg = game.add.audio('bg3');
 		game.bg.play('', 0, 0.5, true);
 
 		bar = new Bar(game, 0, 0, 'bar');
@@ -19,7 +19,7 @@ Play2.prototype = {
 		player = new Player(game, 'player');
 		this.add.existing(player);
 
-		level2Text = game.add.text(280, 400, 'Level 2', { fontSize: '50px', fill: '#ffffff' });
+		level2Text = game.add.text(280, 400, 'Level 3', { fontSize: '50px', fill: '#ffffff' });
 		level2Text.anchor.set(0.5);
 		var style = { font: 'bold 20pt Arial', fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 500 }
 		startText = game.add.text(50, 200, 'Press ENTER to start', style);
@@ -48,28 +48,24 @@ Play2.prototype = {
 		}
 	},
 	makeBullet: function() {
-		route = game.rnd.integerInRange(0,game.paths2.length-1);
-		if (Math.random() >= 0.5) {
-			bullet = new Bullet(game, 'anger', game.paths2[route]);
+		route = game.rnd.integerInRange(0,game.paths3.length-1);
+		if (Math.random() >= 0.67) {
+			bullet = new Bullet(game, 'skull', game.paths3[route]);
+		} else if (Math.random() >= 0.33 && Math.random() < 0.67) {
+			bullet = new Bullet(game, 'radiation', game.paths3[route]);
 		} else {
-			bullet = new Bullet(game, 'debt', game.paths2[route]);
+			bullet = new Bullet(game, 'poison', game.paths3[route]);
 		}
 		this.add.existing(bullet);
 	},
 	finishGame: function() {
 		game.bg.stop();
 		//finishTimer.stop();
-		timer1.stop();
 		game.state.start('Finish');
 	},
 	unpause: function() {
 		level2Text.destroy();
 		startText.destroy();
 		game.paused = false;
-	},
-	nextLevel: function() {
-		game.bg.stop();
-		timer1.stop();
-		game.state.start('Play3');
 	}
 }
