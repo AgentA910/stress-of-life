@@ -28,7 +28,7 @@ Play2.prototype = {
 
 		timer1 = game.time.create(false);
 		this.makeTwenty();
-		timer1.repeat(2000, 29, this.makeTwenty, this);
+		timer1.repeat(3000, 29, this.makeTwenty, this);
 		timer1.start();
 
 		finishTimer = game.time.create(false);
