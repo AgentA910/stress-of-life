@@ -6,10 +6,10 @@ var bar;
 var Play1 = function(game) {};
 Play1.prototype = {
 	preload: function() {
-		console.log("Play: preload");
+		console.log("Play1: preload");
 	},
 	create: function() {
-		console.log("Play: create");
+		console.log("Play1: create");
 
 		game.paused = true;
 
@@ -38,7 +38,7 @@ Play1.prototype = {
 
 		finishTimer = game.time.create(false);
 		//One minute
-		finishTimer.add(60000, this.finishGame, this);
+		finishTimer.add(60000, this.nextLevel, this);
 		finishTimer.start();
 	},
 	update: function() {
@@ -70,5 +70,9 @@ Play1.prototype = {
 		level1Text.destroy();
 		instructionText.destroy();
 		game.paused = false;
+	},
+	nextLevel: function() {
+		game.bg.stop();
+		game.state.start('Play2');
 	}
 }

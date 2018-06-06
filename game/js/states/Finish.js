@@ -5,11 +5,12 @@ Finish.prototype = {
 	},
 	create: function() {
 		console.log("Finish: create");
+		this.background = this.game.add.image(0, 0, 'backgroundMenu');
 		this.add.text(16, 16, "Game finished\nPress F to play again");
 	},
 	update: function() {
 		if (justPressed(Phaser.Keyboard.F)) {
-			game.state.start('Play1');
+			game.state.start('Menu');
 		}
 	}
 }
