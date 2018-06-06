@@ -10,6 +10,8 @@ Load.prototype = {
 		game.load.path = 'assets/img/stylesheet/';
 		game.load.image('gradeF', 'gradeF.png');
 		game.load.image('paper', 'paper.png');
+		game.load.image('debt', 'debt.png');
+		game.load.image('anger', 'anger.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
 		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
@@ -19,7 +21,7 @@ Load.prototype = {
 		game.load.audio('slap', '371108__mccormick-iain__slap.wav');
 		game.load.path = 'assets/img/background/';
 		game.load.image('background1', 'background1.png');
-		game.load.image('abckground2', 'background2.png');
+		game.load.image('background2', 'background2.png');
 		game.load.image('background3', 'background3.png');
 	},
 	create: function() {
@@ -55,6 +57,7 @@ Load.prototype = {
 			this.inter2.push(pathsJSON2[i].inter);
 		}
         game.paths = [];
+        game.paths2 = [];
 
         this.plot();
 	},

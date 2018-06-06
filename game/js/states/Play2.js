@@ -19,7 +19,7 @@ Play2.prototype = {
 		player = new Player(game, 'player');
 		this.add.existing(player);
 
-		level2Text = game.add.text(280, 400, 'Level 1', { fontSize: '50px', fill: '#ffffff' });
+		level2Text = game.add.text(280, 400, 'Level 2', { fontSize: '50px', fill: '#ffffff' });
 		level2Text.anchor.set(0.5);
 		var style = { font: 'bold 20pt Arial', fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 500 }
 		startText = game.add.text(50, 200, 'Press ENTER to start', style);
