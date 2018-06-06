@@ -89,7 +89,13 @@ Load.prototype = {
         	&& game.cache.isSoundDecoded('bg3')
         	&& game.cache.isSoundDecoded('slap')) {
 			//Wait until all sound is decoded to start the game
-        	game.state.start('Play1');
+			if (toLoad == 1) {
+				game.state.start('Play1');
+			} else if (toLoad == 2) {
+				game.state.start('Play2');
+			} else if (toLoad == 3) {
+				game.state.start('Play3');
+			}
         }
 	},
 	//Code adapted from Phaser motion paths tutorial and the Phaser waveforms project
