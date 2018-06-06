@@ -13,6 +13,9 @@ Load.prototype = {
 		game.load.image('paper', 'paper.png');
 		game.load.image('debt', 'debt.png');
 		game.load.image('anger', 'anger.png');
+		game.load.image('skull', 'skull.png');
+		game.load.image('radiation', 'radiation.png');
+		game.load.image('poison', 'poison.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
 		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
