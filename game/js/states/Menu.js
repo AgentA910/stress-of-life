@@ -1,6 +1,7 @@
 var playReady = false;
 var creditReady = false;
 var numSelections = 2;
+var toLoad;
 
 var Menu = function(game) {};
 Menu.prototype = {
@@ -34,6 +35,18 @@ Menu.prototype = {
 			if (justPressed(Phaser.Keyboard.ENTER)) {
 					this.menuPress();
 			}
+			if (justPressed(Phaser.Keyboard.NUMPAD_1)) {
+				toLoad = 1;
+				console.log("toLoad = 1");
+			}
+			if (justPressed(Phaser.Keyboard.NUMPAD_2)) {
+				toLoad = 2;
+				console.log("toLoad = 2");
+			}
+			if (justPressed(Phaser.Keyboard.NUMPAD_3)) {
+				toload = 3;
+				console.log("toLoad = 3");
+			}
 		} else {
 			if (justPressed(Phaser.Keyboard.F)) {
 				startText.kill();
@@ -44,6 +57,7 @@ Menu.prototype = {
 				this.menuUp = true;
 				this.selection = 1;
 				this.setSelection();
+				toLoad = 1;
 			}
 		}
 	},
