@@ -48,11 +48,11 @@ Play2.prototype = {
 		}
 	},
 	makeBullet: function() {
-		route = game.rnd.integerInRange(0,game.paths.length-1);
+		route = game.rnd.integerInRange(0,game.paths2.length-1);
 		if (Math.random() >= 0.5) {
-			bullet = new Bullet(game, 'gradeF', game.paths[route]);
+			bullet = new Bullet(game, 'anger', game.paths2[route]);
 		} else {
-			bullet = new Bullet(game, 'paper', game.paths[route]);
+			bullet = new Bullet(game, 'debt', game.paths2[route]);
 		}
 		this.add.existing(bullet);
 	},
