@@ -33,7 +33,7 @@ Play2.prototype = {
 
 		finishTimer = game.time.create(false);
 		//One minute
-		finishTimer.add(60000, this.finishGame, this);
+		finishTimer.add(60000, this.nextLevel, this);
 		finishTimer.start();
 	},
 	update: function() {
