@@ -59,11 +59,17 @@ Play2.prototype = {
 	finishGame: function() {
 		game.bg.stop();
 		//finishTimer.stop();
+		timer1.stop();
 		game.state.start('Finish');
 	},
 	unpause: function() {
 		level2Text.destroy();
 		startText.destroy();
 		game.paused = false;
+	},
+	nextLevel: function() {
+		game.bg.stop();
+		timer1.stop();
+		game.state.start('Play3');
 	}
 }
