@@ -4,7 +4,9 @@ Load.prototype = {
 	preload: function() {
 		console.log("Load: preload");
 		//For future use of the json file
-		game.load.json('jsonpath', 'assets/bullet-paths/path.json');
+		game.load.path = 'assets/bullet-paths/';
+		game.load.json('jsonpath', 'path.json');
+		game.load.json('jsonpath2', 'paths2.json');
 		game.load.path = 'assets/img/stylesheet/';
 		game.load.image('gradeF', 'gradeF.png');
 		game.load.image('paper', 'paper.png');
@@ -32,9 +34,13 @@ Load.prototype = {
 		cursors = game.input.keyboard.createCursorKeys();
 
 		var pathsJSON = game.cache.getJSON('jsonpath');
+		var pathsJSON2 = game.cache.getJSON('jsonpath2');
 		this.points = [];
+		this.points2 = [];
 		this.time = [];
+		this.time2 = [];
 		this.inter = [];
+		this.inter2 = [];
 		for (var i = 0; i < pathsJSON.length; i++) {
 			//Adds all of the points from the JSON file to this.points
 			this.points.push({x: pathsJSON[i].x, y: pathsJSON[i].y});
