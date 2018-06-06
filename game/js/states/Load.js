@@ -7,11 +7,15 @@ Load.prototype = {
 		game.load.path = 'assets/bullet-paths/';
 		game.load.json('jsonpath', 'path.json');
 		game.load.json('jsonpath2', 'paths2.json');
+		game.load.json('jsonpath3', 'paths3.json');
 		game.load.path = 'assets/img/stylesheet/';
 		game.load.image('gradeF', 'gradeF.png');
 		game.load.image('paper', 'paper.png');
 		game.load.image('debt', 'debt.png');
 		game.load.image('anger', 'anger.png');
+		game.load.image('skull', 'skull.png');
+		game.load.image('radiation', 'radiation.png');
+		game.load.image('poison', 'poison.png');
 		game.load.spritesheet('player', 'player.png', 32, 32);
 		game.load.spritesheet('bar', 'Bar.png', 32, 300)
 		game.load.path = 'assets/audio/';
@@ -36,29 +40,47 @@ Load.prototype = {
 
 		cursors = game.input.keyboard.createCursorKeys();
 
+		//Load in the json files from cache to use
 		var pathsJSON = game.cache.getJSON('jsonpath');
 		var pathsJSON2 = game.cache.getJSON('jsonpath2');
+		var pathsJSON3 = game.cache.getJSON('jsonpath3');
+
+		//Temporary things to allow for making the paths
 		this.points = [];
 		this.points2 = [];
+		this.points3 = [];
 		this.time = [];
 		this.time2 = [];
+		this.time3 = [];
 		this.inter = [];
 		this.inter2 = [];
+		this.inter3 = [];
+
+		//Push in the points, time to take, and interpolation type to arrays
 		for (var i = 0; i < pathsJSON.length; i++) {
-			//Adds all of the points from the JSON file to this.points
 			this.points.push({x: pathsJSON[i].x, y: pathsJSON[i].y});
 			this.time.push(pathsJSON[i].time);
 			this.inter.push(pathsJSON[i].inter);
 		}
 		for (var i = 0; i < pathsJSON2.length; i++) {
-			//Adds all of the points from the second JSON file to this.points2
 			this.points2.push({x: pathsJSON2[i].x, y: pathsJSON2[i].y});
 			this.time2.push(pathsJSON2[i].time);
 			this.inter2.push(pathsJSON2[i].inter);
 		}
+		for (var i = 0; i < pathsJSON3.length; i++) {
+			this.points3.push({x: pathsJSON3[i].x, y: pathsJSON3[i].y});
+			this.time3.push(pathsJSON3[i].time);
+			this.inter3.push(pathsJSON3[i].inter);
+		}
+
+		//Arrays for levels to use
         game.paths = [];
         game.paths2 = [];
+        game.paths3 = [];
 
+        game.slap = game.add.audio('slap');
+
+        //Plot the paths
         this.plot();
 	},
 	update: function() {
@@ -117,6 +139,29 @@ Load.prototype = {
 				}
 			}
 		    game.paths2.push(this.path2);
+		}
+		for (var j = 0; j < this.points3.length; j++) {
+			var x = 1 / (this.time3[j]*60);
+			this.path3 = [];
+			//Type of interpolation is declared with each path in the path.json file
+			if (this.inter3[j] == 1) {
+				//Do catmull interpolation, so more curves, smoother
+				for (var i = 0; i <= 1; i += x) {
+			        var px = this.math.catmullRomInterpolation(this.points3[j].x, i);
+			        var py = this.math.catmullRomInterpolation(this.points3[j].y, i);
+
+			        this.path3.push({x: px, y: py});
+			    }
+			} else {
+				//Do linear interpolation, straight from one point to the next
+				for (var i = 0; i <= 1; i += x) {
+					var px = this.math.linearInterpolation(this.points3[j].x, i);
+					var py = this.math.linearInterpolation(this.points3[j].y, i);
+
+					this.path3.push({x: px, y: py});
+				}
+			}
+		    game.paths3.push(this.path3);
 		}
 	}
 }
