@@ -61,7 +61,7 @@ Play3.prototype = {
 	finishGame: function() {
 		game.bg.stop();
 		//finishTimer.stop();
-		game.state.start('Finish');
+		game.state.start('Win');
 	},
 	unpause: function() {
 		level2Text.destroy();
