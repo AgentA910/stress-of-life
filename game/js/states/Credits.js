@@ -3,21 +3,31 @@ Credits.prototype = {
 	preload: function() {
 		console.log("Credits: preload");
 	},
-	create: function(){
+	create: function() {
 		console.log("Credits: create");
-	this.stage.backgroundColor = '#aabbcc';
-		creditText = game.add.text(250, 0,"CREDITS");
-		backText = game.add.text(50, 550, "Press ENTER to go back to Menu");
-		Stage1 = game.add.text(0,100, "Very Noisy Kids in Classroom by Caculo");
-		Stage2 = game.add.text(0,150, "Ambience Busy Office Call Center by dnlburnett");
-		Stage3 = game.add.text(0,200, "Remembered by Modestus Mankus");
-		Hit = game.add.text(0, 250, "Slap by mccormick-ian");
-		background2 = game.add.text(0,350, "Abstract Money by mallory");
-		music = game.add.text(0,50, "MUSIC:");
-		background = game.add.text(0,300, "BACKGROUND:");
-		Andrew = game.add.text(0,400, "bullet path and level design by Andrew Purcell");
-		Chengyu = game.add.text(0,450, "menu and other background by Chengyu Jiang");
-		Nick = game.add.text(0,500, "sprites and player code by Nick Olds");
+		this.background = this.game.add.image(0, 0, 'backgroundMenu');
+		let style = {
+			font: "16px",
+			fill: "#000",
+        	align: "left",
+        	boundsAlignH: "left",
+        	boundsAlignV: "top",
+        	wordWrap: true,
+        	wordWrapWidth: 600
+		}
+		game.add.text(250, 0,   "CREDITS");
+		game.add.text(10,  50,  "SOUNDS:");
+		game.add.text(10,  100, "Very Noisy Kids in Classroom by Freesound.org Caculo", style);
+		game.add.text(10,  125, "Ambience Busy Office Call Center by Freesound.org user dnlburnett", style);
+		game.add.text(10,  150, "Remembered by Freesound.org user moz5a", style);
+		game.add.text(10,  175, "Slap by Freesound.org user mccormick-ian", style);
+		game.add.text(10,  225, "BACKGROUND:");
+		game.add.text(10,  275, "Abstract Money by motionbackgroundsforfree.com user mallory", style);
+		game.add.text(10,  325, "US:")
+		game.add.text(10,  375, "Andrew Purcell: Bullet system, level design, programming", style);
+		game.add.text(10,  400, "Chengyu Jiang: Menu, backgrounds", style);
+		game.add.text(10,  425, "Nick Olds: Sprites, player code", style);
+		game.add.text(50,  550, "Press ENTER to go back to Menu");
 	},
 	update: function(){
 		if (justPressed(Phaser.Keyboard.ENTER)) {

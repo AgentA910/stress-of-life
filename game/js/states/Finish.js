@@ -6,10 +6,13 @@ Finish.prototype = {
 	create: function() {
 		console.log("Finish: create");
 		this.background = this.game.add.image(0, 0, 'backgroundMenu');
-		this.add.text(0, 400, "Press ENTER to play again");
-		this.add.text(0,50, "They say a little stress can lead to productivity,");
-		this.add.text(0,100, "but too much stress can only damage your health.");
-		this.add.text(0,200, "You have taken on too much stress.");
+		let style = {
+        	wordWrap: true,
+        	wordWrapWidth: 600
+		}
+		this.add.text(10, 50,  "They say a little stress can lead to productivity, but too much stress can only damage your health.", style);
+		this.add.text(10, 200, "You have taken on too much stress.", style);
+		this.add.text(10, 400, "Press ENTER to return to the main menu.", style);
 	},
 	update: function() {
 		if (justPressed(Phaser.Keyboard.ENTER)) {
