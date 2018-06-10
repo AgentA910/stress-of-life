@@ -18,8 +18,8 @@ Menu.prototype = {
 			fontSize: 76,
 			fill: '#ffffff'
 		};
-		titleText = game.add.text(20, 200, 'Stress of Life', textStyle)
-		startText = game.add.text(game.world.centerX, 400, "Press F to start the game");
+		titleText = game.add.text(20, 170, 'Stress of Life', textStyle)
+		startText = game.add.text(game.world.centerX, 400, "Press ENTER to start the game");
 		startText.anchor.set(0.5);
 		var tween = game.add.tween(startText).to({ width: 300, height: 30 }, 1500, 'Linear', true, 0, -1, true);
 		this.menuUp = false;
@@ -47,7 +47,7 @@ Menu.prototype = {
 				toLoad = 3;
 			}
 		} else {
-			if (justPressed(Phaser.Keyboard.F)) {
+			if (justPressed(Phaser.Keyboard.ENTER)) {
 				startText.kill();
 				gameText = game.add.text(game.world.centerX, 400, "New Game", {fill:inactiveFill});
 				creditText = game.add.text(game.world.centerX, 450, "Credits",{fill:inactiveFill});
