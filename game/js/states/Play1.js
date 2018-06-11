@@ -18,16 +18,20 @@ Play1.prototype = {
 
 		this.background = this.game.add.image(0, 0, 'background1');
 
+		//Groups to keep UI on top
+		gameArea = game.add.group();
+		UI       = game.add.group();
+
 		game.bg = game.add.audio('bg1');
 		game.bg.play('', 0, 0.5, true);
 
 		//Add health bar in top right
 		bar = new Bar(game, 0, 0, 'bar');
-		this.add.existing(bar);
+		UI.add(bar);
 
 		//Add player
 		player = new Player(game, 'player');
-		this.add.existing(player);
+		gameArea.add(player);
 
 		//Load instructions, label for level 1
 		level1Text = game.add.text(280, 400, 'Level 1', { fontSize: '50px', fill: '#ffffff' });
@@ -68,7 +72,7 @@ Play1.prototype = {
 		} else {
 			bullet = new Bullet(game, 'paper', game.paths[route]);
 		}
-		this.add.existing(bullet);
+		gameArea.add(bullet);
 	},
 	finishGame: function() {
 		//Go to the end of the game

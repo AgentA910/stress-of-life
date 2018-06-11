@@ -11,12 +11,16 @@ Play3.prototype = {
 
 		this.background = this.game.add.image(0, 0, 'background3');
 
+		//Groups to keep UI on top
+		gameArea = game.add.group();
+		UI       = game.add.group();
+
 		game.bg = game.add.audio('bg3');
 		game.bg.play('', 0, 0.5, true);
 
 		//Make health bar
 		bar = new Bar(game, 0, 0, 'bar');
-		this.add.existing(bar);
+		UI.add(bar);
 
 		//Make player
 		player = new Player(game, 'player');
@@ -60,7 +64,7 @@ Play3.prototype = {
 		} else {
 			bullet = new Bullet(game, 'poison', game.paths3[route]);
 		}
-		this.add.existing(bullet);
+		gameArea.add(bullet);
 	},
 	finishGame: function() {
 		game.bg.stop();
