@@ -1,3 +1,4 @@
+//Level 3
 var Play3 = function(game) {};
 Play3.prototype = {
 	preload: function() {
@@ -13,14 +14,17 @@ Play3.prototype = {
 		game.bg = game.add.audio('bg3');
 		game.bg.play('', 0, 0.5, true);
 
+		//Make health bar
 		bar = new Bar(game, 0, 0, 'bar');
 		this.add.existing(bar);
 
+		//Make player
 		player = new Player(game, 'player');
 		this.add.existing(player);
 
-		level2Text = game.add.text(280, 400, 'Level 3', { fontSize: '50px', fill: '#ffffff' });
-		level2Text.anchor.set(0.5);
+		//Make level 3 intro text
+		level3Text = game.add.text(280, 400, 'Level 3', { fontSize: '50px', fill: '#ffffff' });
+		level3Text.anchor.set(0.5);
 		var style = { font: 'bold 20pt Arial', fill: 'white', align: 'center', wordWrap: true, wordWrapWidth: 500 }
 		startText = game.add.text(50, 200, 'Press ENTER to start', style);
 		ENTER = game.input.keyboard.addKey(Phaser.Keyboard.ENTER)
@@ -33,7 +37,7 @@ Play3.prototype = {
 
 		finishTimer = game.time.create(false);
 		//One minute
-		finishTimer.add(60000, this.finishGame, this);
+		finishTimer.add(60000, this.winGame, this);
 		finishTimer.start();
 	},
 	update: function() {
@@ -61,11 +65,16 @@ Play3.prototype = {
 	finishGame: function() {
 		game.bg.stop();
 		//finishTimer.stop();
-		game.state.start('Win');
+		game.state.start('Finish');
 	},
 	unpause: function() {
-		level2Text.destroy();
+		level3Text.destroy();
 		startText.destroy();
 		game.paused = false;
+	},
+	winGame: function() {
+		game.bg.stop();
+		timer2.stop();
+		game.state.start('Win');
 	}
 }

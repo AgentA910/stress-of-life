@@ -61,6 +61,7 @@ Play1.prototype = {
 		}
 	},
 	makeBullet: function() {
+		//Spawns one bullet on a random path
 		route = game.rnd.integerInRange(0,game.paths.length-1);
 		if (Math.random() >= 0.5) {
 			bullet = new Bullet(game, 'gradeF', game.paths[route]);
@@ -70,17 +71,20 @@ Play1.prototype = {
 		this.add.existing(bullet);
 	},
 	finishGame: function() {
+		//Go to the end of the game
 		game.bg.stop();
 		timer1.stop();
 		//finishTimer.stop();
 		game.state.start('Finish');
 	},
 	unpause: function() {
+		//Unpauses the game
 		level1Text.destroy();
 		instructionText.destroy();
 		game.paused = false;
 	},
 	nextLevel: function() {
+		//Go to the next level
 		game.bg.stop();
 		timer1.stop();
 		game.state.start('Play2');

@@ -23,7 +23,6 @@ Credits.prototype = {
 		game.add.text(10,  175, "Slap by Freesound.org user mccormick-ian", style);
 		game.add.text(10,  225, "BACKGROUND:");
 		game.add.text(10,  275, "Abstract Money by motionbackgroundsforfree.com user mallory", style);
-		game.add.text(10,  325, "US:")
 		game.add.text(10,  375, "Andrew Purcell: Bullet system, level design, programming", style);
 		game.add.text(10,  400, "Chengyu Jiang: Menu, backgrounds", style);
 		game.add.text(10,  425, "Nick Olds: Sprites, player code", style);
