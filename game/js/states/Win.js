@@ -1,17 +1,16 @@
-var Finish = function(game) {};
-Finish.prototype = {
+var Win = function(game) {};
+Win.prototype = {
 	preload: function() {
-		console.log("Finish: preload");
+		console.log("Win: preload");
 	},
 	create: function() {
-		console.log("Finish: create");
+		console.log("Win: create");
 		this.background = this.game.add.image(0, 0, 'backgroundMenu');
 		let style = {
         	wordWrap: true,
         	wordWrapWidth: 600
 		}
-		this.add.text(10, 50,  "They say a little stress can lead to productivity, but too much stress can only damage your health.", style);
-		this.add.text(10, 200, "You have taken on too much stress.", style);
+		this.add.text(10, 50,  "Congratulations. You have managed to survive without overstressing yourself, and can continue on without exhausting yourself.", style);
 		this.add.text(10, 400, "Press ENTER to return to the main menu.", style);
 	},
 	update: function() {

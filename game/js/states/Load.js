@@ -78,6 +78,7 @@ Load.prototype = {
         game.paths2 = [];
         game.paths3 = [];
 
+        //Audio to use when player gets hit
         game.slap = game.add.audio('slap');
 
         //Plot the paths
@@ -89,6 +90,7 @@ Load.prototype = {
         	&& game.cache.isSoundDecoded('bg3')
         	&& game.cache.isSoundDecoded('slap')) {
 			//Wait until all sound is decoded to start the game
+			//For use in debugging/Easter egg, skip to any State when loading
 			if (toLoad == 1) {
 				console.log("Loading Play1");
 				game.state.start('Play1');
@@ -98,6 +100,12 @@ Load.prototype = {
 			} else if (toLoad == 3) {
 				console.log("Loading Play3");
 				game.state.start('Play3');
+			} else if (toLoad == 4) {
+				console.log("Loading Win");
+				game.state.start('Win');
+			} else if (toLoad == 5) {
+				console.log("Loading Finish");
+				game.state.start('Finish');
 			}
         }
 	},

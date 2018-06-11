@@ -10,6 +10,7 @@ window.onload = function() {
 	game.state.add('Menu', Menu);
 	game.state.add('Finish', Finish);
 	game.state.add('Credits', Credits);
+	game.state.add('Win', Win);
 	game.state.add('Boot', Boot);
 	game.state.start('Boot');
 }
