@@ -90,7 +90,6 @@ Load.prototype = {
         	&& game.cache.isSoundDecoded('bg3')
         	&& game.cache.isSoundDecoded('slap')) {
 			//Wait until all sound is decoded to start the game
-
 			//For use in debugging/Easter egg, skip to any State when loading
 			if (toLoad == 1) {
 				console.log("Loading Play1");

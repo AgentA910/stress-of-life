@@ -5,9 +5,9 @@ Nick Olds
 Chengyu Jiang
 
 All code under game folder is by above authors, unless otherwise stated
-Framework is Phaser 2.10.3 from Photon Storm Ltd.
+Framework is Phaser 2.10.5 from Photon Storm Ltd.
 
-Background music found at freesound.org. More exact credits to be included soon.
+Background music found at freesound.org.
 
 Sound: Very noisy kids in classroom
 From: Freesound user caculo (https://freesound.org/people/caculo/)
